@@ -1,0 +1,27 @@
+10)
+mysql> create view stu_view as select reg_no,name and dob from students;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> select * from stu_view;
++-----------+--------------+
+| reg_no    | name and dob |
++-----------+--------------+
+| 192211888 |            0 |
+| 192211889 |            0 |
+| 192211444 |            0 |
+| 192343222 |            0 |
+| 192211555 |            0 |
++-----------+--------------+
+5 rows in set, 5 warnings (0.03 sec)
+
+mysql> create index reg_no on students(reg_no);
+Query OK, 0 rows affected (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from students;
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table    | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| students |          1 | reg_no   |            1 | REG_NO      | A         |           5 |     NULL | NULL   | YES  | BTREE      |         |               |
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+1 row in set (0.03 sec)
